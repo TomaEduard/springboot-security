@@ -1,7 +1,5 @@
 package rc.bootsecurity.model;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +24,7 @@ public class User {
 
     private String permissions = "";        // avoid to have null reference
 
-    public User(String username, String password, String roles, String permissions){
+    public User(String username, String password, String roles, String permissions) {
         this.username = username;
         this.password = password;
         this.roles = roles;
@@ -34,17 +32,18 @@ public class User {
         this.active = 1;                    // set default value
     }
 
-    protected User(){}
+    protected User() {
+    }
 
-    public List<String> getRoleList(){
-        if(this.roles.length() > 0){
+    public List<String> getRoleList() {
+        if (this.roles.length() > 0) {
             return Arrays.asList(this.roles.split(","));
         }
         return new ArrayList<>();
     }
 
-    public List<String> getPermissionList(){
-        if(this.permissions.length() > 0){
+    public List<String> getPermissionList() {
+        if (this.permissions.length() > 0) {
             return Arrays.asList(this.permissions.split(","));
         }
         return new ArrayList<>();
